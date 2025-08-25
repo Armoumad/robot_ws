@@ -1,0 +1,107 @@
+[0.020s] Invoking command in '/home/armoumad/robot_ws/build/robot_arm_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/armoumad/robot_ws/src/robot_arm_simulation -DCMAKE_INSTALL_PREFIX=/home/armoumad/robot_ws/install/robot_arm_simulation
+[0.125s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.254s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.276s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.473s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.477s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.485s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.498s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.513s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.573s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.577s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[6.388s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[6.460s] -- Found rclpy: 3.3.16 (/opt/ros/humble/share/rclpy/cmake)
+[6.461s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[6.481s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[6.505s] -- Found trajectory_msgs: 4.9.0 (/opt/ros/humble/share/trajectory_msgs/cmake)
+[6.530s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[7.965s] -- Found robot_state_publisher: 3.0.3 (/opt/ros/humble/share/robot_state_publisher/cmake)
+[7.973s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[7.974s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[8.074s] -- Found xacro: 2.0.13 (/opt/ros/humble/share/xacro/cmake)
+[8.075s] -- Found gazebo_ros: 3.9.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[8.120s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[8.178s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[8.182s] -- Looking for ignition-math6 -- found version 6.15.1
+[8.191s] -- Searching for dependencies of ignition-math6
+[8.195s] -- Looking for OGRE...
+[8.202s] -- Found Ogre Ghadamon (1.9.0)
+[8.203s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[8.211s] -- Looking for OGRE_Paging...
+[8.211s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[8.211s] -- Looking for OGRE_Terrain...
+[8.211s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[8.211s] -- Looking for OGRE_Property...
+[8.211s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[8.212s] -- Looking for OGRE_RTShaderSystem...
+[8.212s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[8.212s] -- Looking for OGRE_Volume...
+[8.212s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[8.212s] -- Looking for OGRE_Overlay...
+[8.212s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[32.467s] -- Looking for ignition-math6 -- found version 6.15.1
+[32.469s] -- Looking for ignition-transport8 -- found version 8.2.1
+[32.469s] -- Searching for dependencies of ignition-transport8
+[33.882s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[35.331s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[35.335s] -- Checking for module 'libzmq >= 4'
+[35.350s] --   Found libzmq , version 4.3.4
+[35.394s] -- Checking for module 'uuid'
+[35.408s] --   Found uuid, version 2.37.2
+[35.440s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[35.441s] -- Searching for dependencies of ignition-msgs5
+[36.860s] -- Looking for ignition-math6 -- found version 6.15.1
+[36.868s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[36.869s] -- Looking for ignition-common3 -- found version 3.14.0
+[36.869s] -- Searching for dependencies of ignition-common3
+[36.870s] -- Looking for dlfcn.h - found
+[36.870s] -- Looking for libdl - found
+[36.974s] -- Searching for <ignition-common3> component [graphics]
+[36.975s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[36.976s] -- Searching for dependencies of ignition-common3-graphics
+[36.976s] -- Looking for ignition-math6 -- found version 6.15.1
+[36.978s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[36.978s] -- Searching for dependencies of ignition-fuel_tools4
+[38.633s] -- Checking for module 'jsoncpp'
+[38.645s] --   Found jsoncpp, version 1.9.5
+[38.676s] -- Checking for module 'libzip'
+[38.687s] --   Found libzip, version 1.7.3
+[38.713s] -- Looking for ignition-common3 -- found version 3.14.0
+[38.714s] -- Looking for ignition-math6 -- found version 6.15.1
+[38.714s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[38.718s] -- Gazebo version: 11.10
+[38.721s] -- Found rviz2: 11.2.17 (/opt/ros/humble/share/rviz2/cmake)
+[38.723s] -- Found ros2_control: 2.51.0 (/opt/ros/humble/share/ros2_control/cmake)
+[38.724s] -- Found ros2_controllers: 2.49.1 (/opt/ros/humble/share/ros2_controllers/cmake)
+[38.725s] -- Found controller_manager: 2.51.0 (/opt/ros/humble/share/controller_manager/cmake)
+[38.829s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[38.915s] -- Added test 'copyright' to check source files copyright and LICENSE
+[38.918s] -- Added test 'flake8' to check Python code syntax and style conventions
+[38.919s] -- Added test 'lint_cmake' to check CMake code style
+[38.920s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[38.922s] -- Added test 'xmllint' to check XML markup files
+[38.925s] -- Configuring done
+[38.935s] -- Generating done
+[38.938s] -- Build files have been written to: /home/armoumad/robot_ws/build/robot_arm_simulation
+[38.957s] Invoked command in '/home/armoumad/robot_ws/build/robot_arm_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/armoumad/robot_ws/src/robot_arm_simulation -DCMAKE_INSTALL_PREFIX=/home/armoumad/robot_ws/install/robot_arm_simulation
+[38.961s] Invoking command in '/home/armoumad/robot_ws/build/robot_arm_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/armoumad/robot_ws/build/robot_arm_simulation -- -j8 -l8
+[39.000s] Invoked command in '/home/armoumad/robot_ws/build/robot_arm_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/armoumad/robot_ws/build/robot_arm_simulation -- -j8 -l8
+[39.009s] Invoking command in '/home/armoumad/robot_ws/build/robot_arm_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/armoumad/robot_ws/build/robot_arm_simulation
+[39.015s] -- Install configuration: ""
+[39.015s] -- Execute custom install script
+[39.016s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//launch/combined.launch.py
+[39.024s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//launch/gazebo.launch.py
+[39.032s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//launch/rviz.launch.py
+[39.040s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//urdf/inertial_macros.xacro
+[39.048s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//urdf/robot_arm.urdf.xacro
+[39.055s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//config/arm_controllers.yaml
+[39.063s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//rviz/arm_config.rivz
+[39.070s] [31mCMake Error at ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:100 (message):
+[39.070s]   ament_cmake_symlink_install_directory() can't find
+[39.070s]   '/home/armoumad/robot_ws/src/robot_arm_simulation/meshes'
+[39.070s] Call Stack (most recent call first):
+[39.070s]   ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:314 (ament_cmake_symlink_install_directory)
+[39.070s]   cmake_install.cmake:46 (include)
+[39.070s] 
+[39.070s] [0m
+[39.071s] Invoked command in '/home/armoumad/robot_ws/build/robot_arm_simulation' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/armoumad/robot_ws/build/robot_arm_simulation

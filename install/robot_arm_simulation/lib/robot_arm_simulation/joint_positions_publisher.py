@@ -1,0 +1,1 @@
+/home/armoumad/robot_ws/src/robot_arm_simulation/scripts/joint_positions_publisher.py

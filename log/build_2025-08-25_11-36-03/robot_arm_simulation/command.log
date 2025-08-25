@@ -1,0 +1,6 @@
+Invoking command in '/home/armoumad/robot_ws/build/robot_arm_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/armoumad/robot_ws/src/robot_arm_simulation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/armoumad/robot_ws/install/robot_arm_simulation
+Invoked command in '/home/armoumad/robot_ws/build/robot_arm_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/armoumad/robot_ws/src/robot_arm_simulation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/armoumad/robot_ws/install/robot_arm_simulation
+Invoking command in '/home/armoumad/robot_ws/build/robot_arm_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/armoumad/robot_ws/build/robot_arm_simulation -- -j8 -l8
+Invoked command in '/home/armoumad/robot_ws/build/robot_arm_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/armoumad/robot_ws/build/robot_arm_simulation -- -j8 -l8
+Invoking command in '/home/armoumad/robot_ws/build/robot_arm_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/armoumad/robot_ws/build/robot_arm_simulation
+Invoked command in '/home/armoumad/robot_ws/build/robot_arm_simulation' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/armoumad/robot_ws/build/robot_arm_simulation

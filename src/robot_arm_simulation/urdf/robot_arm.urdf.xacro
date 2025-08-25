@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_arm">
+
+    <!-- Include inertial macros -->
+    <xacro:include filename="$(find robot_arm_simulation)/urdf/inertial_macros.xacro"/>
+
+    <!-- Properties -->
+    <xacro:property name="PI" value="3.1415926535897931"/>
+    
+    <!-- Arm properties -->
+    <xacro:property name="base_height" value="0.1"/>
+    <xacro:property name="base_radius" value="0.05"/>
+    <xacro:property name="base_mass" value="2.0"/>
+    
+    <xacro:property name="shoulder_length" value="0.15"/>
+    <xacro:property name="shoulder_radius" value="0.035"/>
+    <xacro:property name="shoulder_mass" value="1.5"/>
+    
+    <xacro:property name="upper_arm_length" value="0.30"/>
+    <xacro:property name="upper_arm_radius" value="0.03"/>
+    <xacro:property name="upper_arm_mass" value="1.2"/>
+    
+    <xacro:property name="elbow_length" value="0.08"/>
+    <xacro:property name="elbow_radius" value="0.025"/>
+    <xacro:property name="elbow_mass" value="0.8"/>
+    
+    <xacro:property name="forearm_length" value="0.25"/>
+    <xacro:property name="forearm_radius" value="0.025"/>
+    <xacro:property name="forearm_mass" value="1.0"/>
+
+    <!-- Materials -->
+    <material name="blue">
+        <color rgba="0.2 0.2 1 1"/>
+    </material>
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+    <material name="grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+    </material>
+    <material name="orange">
+        <color rgba="1 0.5 0 1"/>
+    </material>
+
+    <!-- World link -->
+    <link name="world"/>
+
+    <!-- Base link -->
+    <joint name="fixed" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${base_radius}" length="${base_height}"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${base_radius}" length="${base_height}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="${base_mass}" length="${base_height}" radius="${base_radius}">
+            <origin xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <!-- Shoulder joint and link -->
+    <joint name="shoulder_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="shoulder_link"/>
+        <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-${PI}" upper="${PI}" effort="300" velocity="1.0"/>
+        <dynamics damping="0.5" friction="0.1"/>
+    </joint>
+
+    <link name="shoulder_link">
+        <visual>
+            <origin xyz="0 0 ${shoulder_length/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${shoulder_radius}" length="${shoulder_length}"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 ${shoulder_length/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${shoulder_radius}" length="${shoulder_length}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="${shoulder_mass}" length="${shoulder_length}" radius="${shoulder_radius}">
+            <origin xyz="0 0 ${shoulder_length/2}" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <!-- Upper arm joint and link -->
+    <joint name="upper_arm_joint" type="revolute">
+        <parent link="shoulder_link"/>
+        <child link="upper_arm_link"/>
+        <origin xyz="0 0 ${shoulder_length}" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-${PI/2}" upper="${PI/2}" effort="300" velocity="1.0"/>
+        <dynamics damping="0.5" friction="0.1"/>
+    </joint>
+
+    <link name="upper_arm_link">
+        <visual>
+            <origin xyz="0 0 ${upper_arm_length/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${upper_arm_radius}" length="${upper_arm_length}"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 ${upper_arm_length/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${upper_arm_radius}" length="${upper_arm_length}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="${upper_arm_mass}" length="${upper_arm_length}" radius="${upper_arm_radius}">
+            <origin xyz="0 0 ${upper_arm_length/2}" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <!-- Elbow joint and link -->
+    <joint name="elbow_joint" type="revolute">
+        <parent link="upper_arm_link"/>
+        <child link="elbow_link"/>
+        <origin xyz="0 0 ${upper_arm_length}" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-${PI}" upper="${PI}" effort="300" velocity="1.0"/>
+        <dynamics damping="0.3" friction="0.1"/>
+    </joint>
+
+    <link name="elbow_link">
+        <visual>
+            <origin xyz="0 0 ${elbow_length/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${elbow_radius}" length="${elbow_length}"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 ${elbow_length/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${elbow_radius}" length="${elbow_length}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="${elbow_mass}" length="${elbow_length}" radius="${elbow_radius}">
+            <origin xyz="0 0 ${elbow_length/2}" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <!-- Forearm joint and link -->
+    <joint name="forearm_joint" type="revolute">
+        <parent link="elbow_link"/>
+        <child link="forearm_link"/>
+        <origin xyz="0 0 ${elbow_length}" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-${PI/2}" upper="${PI/2}" effort="300" velocity="1.0"/>
+        <dynamics damping="0.3" friction="0.1"/>
+    </joint>
+
+    <link name="forearm_link">
+        <visual>
+            <origin xyz="0 0 ${forearm_length/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${forearm_radius}" length="${forearm_length}"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 ${forearm_length/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${forearm_radius}" length="${forearm_length}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="${forearm_mass}" length="${forearm_length}" radius="${forearm_radius}">
+            <origin xyz="0 0 ${forearm_length/2}" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <!-- Wrist joint and link -->
+    <joint name="wrist_joint" type="revolute">
+        <parent link="forearm_link"/>
+        <child link="wrist_link"/>
+        <origin xyz="0 0 ${forearm_length}" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-${PI}" upper="${PI}" effort="100" velocity="1.0"/>
+        <dynamics damping="0.2" friction="0.05"/>
+    </joint>
+
+    <link name="wrist_link">
+        <visual>
+            <origin xyz="0 0 0.02" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.04 0.04"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.02" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.04 0.04"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.2" x="0.04" y="0.04" z="0.04">
+            <origin xyz="0 0 0.02" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <!-- ROS2 Control -->
+    <ros2_control name="RobotSystem" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        
+        <joint name="shoulder_joint">
+            <command_interface name="position">
+                <param name="min">-3.14159</param>
+                <param name="max">3.14159</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        
+        <joint name="upper_arm_joint">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        
+        <joint name="elbow_joint">
+            <command_interface name="position">
+                <param name="min">-3.14159</param>
+                <param name="max">3.14159</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        
+        <joint name="forearm_joint">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        
+        <joint name="wrist_joint">
+            <command_interface name="position">
+                <param name="min">-3.14159</param>
+                <param name="max">3.14159</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+    </ros2_control>
+
+    <!-- Gazebo plugin for ros2_control -->
+    <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <parameters>$(find robot_arm_simulation)/config/arm_controllers.yaml</parameters>
+        </plugin>
+    </gazebo>
+
+    <!-- Gazebo materials -->
+    <gazebo reference="base_link">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    
+    <gazebo reference="shoulder_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    
+    <gazebo reference="upper_arm_link">
+        <material>Gazebo/Red</material>
+    </gazebo>
+    
+    <gazebo reference="elbow_link">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    
+    <gazebo reference="forearm_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    
+    <gazebo reference="wrist_link">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+
+</robot>

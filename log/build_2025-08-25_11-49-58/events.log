@@ -1,0 +1,513 @@
+[0.000000] (-) TimerEvent: {}
+[0.000160] (robot_arm_simulation) JobQueued: {'identifier': 'robot_arm_simulation', 'dependencies': OrderedDict()}
+[0.000807] (robot_arm_simulation) JobStarted: {'identifier': 'robot_arm_simulation'}
+[0.008518] (robot_arm_simulation) JobProgress: {'identifier': 'robot_arm_simulation', 'progress': 'cmake'}
+[0.010330] (robot_arm_simulation) JobProgress: {'identifier': 'robot_arm_simulation', 'progress': 'build'}
+[0.010417] (robot_arm_simulation) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/armoumad/robot_ws/build/robot_arm_simulation', '--', '-j8', '-l8'], 'cwd': '/home/armoumad/robot_ws/build/robot_arm_simulation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'armoumad'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/armoumad'), ('OLDPWD', '/home/armoumad'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/armoumad/robot_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'armoumad'), ('NAME', 'armd'), ('WSL_INTEROP', '/run/WSL/302_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/armoumad/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Siemens/Automation/SCADA-RT_V11/WinCC/Bin:/mnt/c/Program Files/Common Files/Siemens/Automation/Simatic OAM/bin:/mnt/c/Program Files (x86)/Common Files/Siemens/Bin:/mnt/c/Program Files (x86)/Common Files/Siemens/CommonArchiving:/mnt/c/Program Files (x86)/Common Files/Siemens/ACE/Bin:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Python313/Scripts/:/mnt/c/Python313/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/mosquitto:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/R2024b/runtime/win64:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Users/mouma/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/mouma/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/mouma/AppData/Roaming/npm:/mnt/c/Users/mouma/.dotnet/tools:/mnt/c/flutter/src/flutter/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/armoumad/robot_ws/build/robot_arm_simulation'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', ''), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.043029] (robot_arm_simulation) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.099520] (-) TimerEvent: {}
+[0.151031] (robot_arm_simulation) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.156094] (robot_arm_simulation) StdoutLine: {'line': b'-- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.199665] (-) TimerEvent: {}
+[0.301969] (-) TimerEvent: {}
+[0.317430] (robot_arm_simulation) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.319774] (robot_arm_simulation) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.324450] (robot_arm_simulation) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.331448] (robot_arm_simulation) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.340718] (robot_arm_simulation) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.363460] (robot_arm_simulation) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.364563] (robot_arm_simulation) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.403004] (-) TimerEvent: {}
+[0.505977] (-) TimerEvent: {}
+[0.608857] (-) TimerEvent: {}
+[0.711644] (-) TimerEvent: {}
+[0.814446] (-) TimerEvent: {}
+[0.916095] (-) TimerEvent: {}
+[1.018983] (-) TimerEvent: {}
+[1.121818] (-) TimerEvent: {}
+[1.224640] (-) TimerEvent: {}
+[1.327426] (-) TimerEvent: {}
+[1.430235] (-) TimerEvent: {}
+[1.531555] (-) TimerEvent: {}
+[1.634352] (-) TimerEvent: {}
+[1.737138] (-) TimerEvent: {}
+[1.837563] (-) TimerEvent: {}
+[1.940028] (-) TimerEvent: {}
+[2.042795] (-) TimerEvent: {}
+[2.144490] (-) TimerEvent: {}
+[2.247473] (-) TimerEvent: {}
+[2.350335] (-) TimerEvent: {}
+[2.452449] (-) TimerEvent: {}
+[2.554439] (-) TimerEvent: {}
+[2.656444] (-) TimerEvent: {}
+[2.758541] (-) TimerEvent: {}
+[2.860672] (-) TimerEvent: {}
+[2.962690] (-) TimerEvent: {}
+[3.064812] (-) TimerEvent: {}
+[3.166839] (-) TimerEvent: {}
+[3.268931] (-) TimerEvent: {}
+[3.370336] (-) TimerEvent: {}
+[3.470871] (-) TimerEvent: {}
+[3.572908] (-) TimerEvent: {}
+[3.674984] (-) TimerEvent: {}
+[3.777031] (-) TimerEvent: {}
+[3.879225] (-) TimerEvent: {}
+[3.981197] (-) TimerEvent: {}
+[4.083221] (-) TimerEvent: {}
+[4.185229] (-) TimerEvent: {}
+[4.287293] (-) TimerEvent: {}
+[4.389296] (-) TimerEvent: {}
+[4.491294] (-) TimerEvent: {}
+[4.593290] (-) TimerEvent: {}
+[4.695293] (-) TimerEvent: {}
+[4.797294] (-) TimerEvent: {}
+[4.898141] (-) TimerEvent: {}
+[5.000050] (-) TimerEvent: {}
+[5.102045] (-) TimerEvent: {}
+[5.204060] (-) TimerEvent: {}
+[5.306071] (-) TimerEvent: {}
+[5.407855] (-) TimerEvent: {}
+[5.509958] (-) TimerEvent: {}
+[5.611948] (-) TimerEvent: {}
+[5.714032] (-) TimerEvent: {}
+[5.815461] (-) TimerEvent: {}
+[5.917514] (-) TimerEvent: {}
+[6.019465] (-) TimerEvent: {}
+[6.121525] (-) TimerEvent: {}
+[6.223540] (-) TimerEvent: {}
+[6.325630] (-) TimerEvent: {}
+[6.382219] (robot_arm_simulation) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[6.418515] (robot_arm_simulation) StdoutLine: {'line': b'-- Found rclpy: 3.3.16 (/opt/ros/humble/share/rclpy/cmake)\n'}
+[6.418676] (robot_arm_simulation) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[6.426016] (-) TimerEvent: {}
+[6.427782] (robot_arm_simulation) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[6.440541] (robot_arm_simulation) StdoutLine: {'line': b'-- Found trajectory_msgs: 4.9.0 (/opt/ros/humble/share/trajectory_msgs/cmake)\n'}
+[6.452380] (robot_arm_simulation) StdoutLine: {'line': b'-- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)\n'}
+[6.527365] (-) TimerEvent: {}
+[6.628013] (-) TimerEvent: {}
+[6.730020] (-) TimerEvent: {}
+[6.832057] (-) TimerEvent: {}
+[6.934065] (-) TimerEvent: {}
+[7.035337] (-) TimerEvent: {}
+[7.137356] (-) TimerEvent: {}
+[7.239427] (-) TimerEvent: {}
+[7.341445] (-) TimerEvent: {}
+[7.443447] (-) TimerEvent: {}
+[7.545078] (-) TimerEvent: {}
+[7.645502] (-) TimerEvent: {}
+[7.746870] (-) TimerEvent: {}
+[7.848879] (-) TimerEvent: {}
+[7.857444] (robot_arm_simulation) StdoutLine: {'line': b'-- Found robot_state_publisher: 3.0.3 (/opt/ros/humble/share/robot_state_publisher/cmake)\n'}
+[7.860432] (robot_arm_simulation) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[7.861566] (robot_arm_simulation) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[7.928030] (robot_arm_simulation) StdoutLine: {'line': b'-- Found xacro: 2.0.13 (/opt/ros/humble/share/xacro/cmake)\n'}
+[7.928473] (robot_arm_simulation) StdoutLine: {'line': b'-- Found gazebo_ros: 3.9.0 (/opt/ros/humble/share/gazebo_ros/cmake)\n'}
+[7.949135] (-) TimerEvent: {}
+[7.954583] (robot_arm_simulation) StdoutLine: {'line': b'-- Found DART: /usr/include (Required is at least version "6.6") found components: dart \n'}
+[7.976949] (robot_arm_simulation) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") \n'}
+[7.977982] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[7.981746] (robot_arm_simulation) StdoutLine: {'line': b'-- Searching for dependencies of ignition-math6\n'}
+[7.983148] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for OGRE...\n'}
+[7.988895] (robot_arm_simulation) StdoutLine: {'line': b'-- Found Ogre Ghadamon (1.9.0)\n'}
+[7.989039] (robot_arm_simulation) StdoutLine: {'line': b'-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so\n'}
+[7.996546] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for OGRE_Paging...\n'}
+[7.996694] (robot_arm_simulation) StdoutLine: {'line': b'-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so\n'}
+[7.996889] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for OGRE_Terrain...\n'}
+[7.996970] (robot_arm_simulation) StdoutLine: {'line': b'-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so\n'}
+[7.997019] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for OGRE_Property...\n'}
+[7.997092] (robot_arm_simulation) StdoutLine: {'line': b'-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so\n'}
+[7.997252] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for OGRE_RTShaderSystem...\n'}
+[7.997308] (robot_arm_simulation) StdoutLine: {'line': b'-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so\n'}
+[7.997353] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for OGRE_Volume...\n'}
+[7.997391] (robot_arm_simulation) StdoutLine: {'line': b'-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so\n'}
+[7.997430] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for OGRE_Overlay...\n'}
+[7.997467] (robot_arm_simulation) StdoutLine: {'line': b'-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so\n'}
+[8.050130] (-) TimerEvent: {}
+[8.152165] (-) TimerEvent: {}
+[8.254269] (-) TimerEvent: {}
+[8.355339] (-) TimerEvent: {}
+[8.456980] (-) TimerEvent: {}
+[8.559028] (-) TimerEvent: {}
+[8.661144] (-) TimerEvent: {}
+[8.763213] (-) TimerEvent: {}
+[8.865248] (-) TimerEvent: {}
+[8.967293] (-) TimerEvent: {}
+[9.069287] (-) TimerEvent: {}
+[9.171298] (-) TimerEvent: {}
+[9.273316] (-) TimerEvent: {}
+[9.375246] (-) TimerEvent: {}
+[9.477347] (-) TimerEvent: {}
+[9.579317] (-) TimerEvent: {}
+[9.681333] (-) TimerEvent: {}
+[9.783369] (-) TimerEvent: {}
+[9.885369] (-) TimerEvent: {}
+[9.987419] (-) TimerEvent: {}
+[10.089422] (-) TimerEvent: {}
+[10.191417] (-) TimerEvent: {}
+[10.293429] (-) TimerEvent: {}
+[10.394777] (-) TimerEvent: {}
+[10.497213] (-) TimerEvent: {}
+[10.599453] (-) TimerEvent: {}
+[10.701879] (-) TimerEvent: {}
+[10.804240] (-) TimerEvent: {}
+[10.906617] (-) TimerEvent: {}
+[11.009072] (-) TimerEvent: {}
+[11.111451] (-) TimerEvent: {}
+[11.213819] (-) TimerEvent: {}
+[11.316198] (-) TimerEvent: {}
+[11.418556] (-) TimerEvent: {}
+[11.519879] (-) TimerEvent: {}
+[11.622173] (-) TimerEvent: {}
+[11.724014] (-) TimerEvent: {}
+[11.826484] (-) TimerEvent: {}
+[11.928943] (-) TimerEvent: {}
+[12.031402] (-) TimerEvent: {}
+[12.133751] (-) TimerEvent: {}
+[12.236109] (-) TimerEvent: {}
+[12.338461] (-) TimerEvent: {}
+[12.440810] (-) TimerEvent: {}
+[12.543193] (-) TimerEvent: {}
+[12.643550] (-) TimerEvent: {}
+[12.745906] (-) TimerEvent: {}
+[12.848311] (-) TimerEvent: {}
+[12.950685] (-) TimerEvent: {}
+[13.052430] (-) TimerEvent: {}
+[13.154777] (-) TimerEvent: {}
+[13.257142] (-) TimerEvent: {}
+[13.358865] (-) TimerEvent: {}
+[13.461219] (-) TimerEvent: {}
+[13.563589] (-) TimerEvent: {}
+[13.665935] (-) TimerEvent: {}
+[13.768408] (-) TimerEvent: {}
+[13.870752] (-) TimerEvent: {}
+[13.973211] (-) TimerEvent: {}
+[14.075604] (-) TimerEvent: {}
+[14.177960] (-) TimerEvent: {}
+[14.280356] (-) TimerEvent: {}
+[14.382703] (-) TimerEvent: {}
+[14.485071] (-) TimerEvent: {}
+[14.587512] (-) TimerEvent: {}
+[14.689876] (-) TimerEvent: {}
+[14.792233] (-) TimerEvent: {}
+[14.894582] (-) TimerEvent: {}
+[14.996967] (-) TimerEvent: {}
+[15.099348] (-) TimerEvent: {}
+[15.201719] (-) TimerEvent: {}
+[15.304071] (-) TimerEvent: {}
+[15.406442] (-) TimerEvent: {}
+[15.507562] (-) TimerEvent: {}
+[15.608920] (-) TimerEvent: {}
+[15.711299] (-) TimerEvent: {}
+[15.813707] (-) TimerEvent: {}
+[15.916089] (-) TimerEvent: {}
+[16.018457] (-) TimerEvent: {}
+[16.120851] (-) TimerEvent: {}
+[16.223251] (-) TimerEvent: {}
+[16.325635] (-) TimerEvent: {}
+[16.427994] (-) TimerEvent: {}
+[16.530373] (-) TimerEvent: {}
+[16.632712] (-) TimerEvent: {}
+[16.735027] (-) TimerEvent: {}
+[16.835516] (-) TimerEvent: {}
+[16.937900] (-) TimerEvent: {}
+[17.040278] (-) TimerEvent: {}
+[17.142630] (-) TimerEvent: {}
+[17.243590] (-) TimerEvent: {}
+[17.345959] (-) TimerEvent: {}
+[17.448311] (-) TimerEvent: {}
+[17.550689] (-) TimerEvent: {}
+[17.653075] (-) TimerEvent: {}
+[17.755387] (-) TimerEvent: {}
+[17.855798] (-) TimerEvent: {}
+[17.956187] (-) TimerEvent: {}
+[18.058077] (-) TimerEvent: {}
+[18.160445] (-) TimerEvent: {}
+[18.262800] (-) TimerEvent: {}
+[18.364150] (-) TimerEvent: {}
+[18.466518] (-) TimerEvent: {}
+[18.568968] (-) TimerEvent: {}
+[18.671361] (-) TimerEvent: {}
+[18.773674] (-) TimerEvent: {}
+[18.875620] (-) TimerEvent: {}
+[18.977345] (-) TimerEvent: {}
+[19.078035] (-) TimerEvent: {}
+[19.178751] (-) TimerEvent: {}
+[19.279562] (-) TimerEvent: {}
+[19.380213] (-) TimerEvent: {}
+[19.480713] (-) TimerEvent: {}
+[19.581489] (-) TimerEvent: {}
+[19.682222] (-) TimerEvent: {}
+[19.782921] (-) TimerEvent: {}
+[19.883613] (-) TimerEvent: {}
+[19.984178] (-) TimerEvent: {}
+[20.084964] (-) TimerEvent: {}
+[20.185654] (-) TimerEvent: {}
+[20.286407] (-) TimerEvent: {}
+[20.386848] (-) TimerEvent: {}
+[20.487246] (-) TimerEvent: {}
+[20.587578] (-) TimerEvent: {}
+[20.687919] (-) TimerEvent: {}
+[20.788269] (-) TimerEvent: {}
+[20.888606] (-) TimerEvent: {}
+[20.988954] (-) TimerEvent: {}
+[21.089299] (-) TimerEvent: {}
+[21.189640] (-) TimerEvent: {}
+[21.290040] (-) TimerEvent: {}
+[21.390801] (-) TimerEvent: {}
+[21.491485] (-) TimerEvent: {}
+[21.592191] (-) TimerEvent: {}
+[21.692777] (-) TimerEvent: {}
+[21.793550] (-) TimerEvent: {}
+[21.894238] (-) TimerEvent: {}
+[21.994929] (-) TimerEvent: {}
+[22.095635] (-) TimerEvent: {}
+[22.196136] (-) TimerEvent: {}
+[22.296773] (-) TimerEvent: {}
+[22.397503] (-) TimerEvent: {}
+[22.498191] (-) TimerEvent: {}
+[22.598907] (-) TimerEvent: {}
+[22.699374] (-) TimerEvent: {}
+[22.800075] (-) TimerEvent: {}
+[22.900859] (-) TimerEvent: {}
+[23.001639] (-) TimerEvent: {}
+[23.102395] (-) TimerEvent: {}
+[23.202923] (-) TimerEvent: {}
+[23.303714] (-) TimerEvent: {}
+[23.404452] (-) TimerEvent: {}
+[23.504966] (-) TimerEvent: {}
+[23.605685] (-) TimerEvent: {}
+[23.706113] (-) TimerEvent: {}
+[23.806824] (-) TimerEvent: {}
+[23.907646] (-) TimerEvent: {}
+[24.008480] (-) TimerEvent: {}
+[24.109201] (-) TimerEvent: {}
+[24.209603] (-) TimerEvent: {}
+[24.310345] (-) TimerEvent: {}
+[24.411047] (-) TimerEvent: {}
+[24.511767] (-) TimerEvent: {}
+[24.612465] (-) TimerEvent: {}
+[24.712845] (-) TimerEvent: {}
+[24.813547] (-) TimerEvent: {}
+[24.914234] (-) TimerEvent: {}
+[25.015036] (-) TimerEvent: {}
+[25.115789] (-) TimerEvent: {}
+[25.216467] (-) TimerEvent: {}
+[25.316886] (-) TimerEvent: {}
+[25.417650] (-) TimerEvent: {}
+[25.518358] (-) TimerEvent: {}
+[25.619082] (-) TimerEvent: {}
+[25.719856] (-) TimerEvent: {}
+[25.820530] (-) TimerEvent: {}
+[25.921321] (-) TimerEvent: {}
+[26.022022] (-) TimerEvent: {}
+[26.122717] (-) TimerEvent: {}
+[26.223425] (-) TimerEvent: {}
+[26.324094] (-) TimerEvent: {}
+[26.424781] (-) TimerEvent: {}
+[26.525516] (-) TimerEvent: {}
+[26.626220] (-) TimerEvent: {}
+[26.726950] (-) TimerEvent: {}
+[26.827522] (-) TimerEvent: {}
+[26.928220] (-) TimerEvent: {}
+[27.029492] (-) TimerEvent: {}
+[27.131003] (-) TimerEvent: {}
+[27.232559] (-) TimerEvent: {}
+[27.333590] (-) TimerEvent: {}
+[27.435028] (-) TimerEvent: {}
+[27.536102] (-) TimerEvent: {}
+[27.637557] (-) TimerEvent: {}
+[27.739014] (-) TimerEvent: {}
+[27.839996] (-) TimerEvent: {}
+[27.940658] (-) TimerEvent: {}
+[28.042108] (-) TimerEvent: {}
+[28.143526] (-) TimerEvent: {}
+[28.244982] (-) TimerEvent: {}
+[28.345963] (-) TimerEvent: {}
+[28.447415] (-) TimerEvent: {}
+[28.548887] (-) TimerEvent: {}
+[28.650332] (-) TimerEvent: {}
+[28.751781] (-) TimerEvent: {}
+[28.852619] (-) TimerEvent: {}
+[28.953156] (-) TimerEvent: {}
+[29.054576] (-) TimerEvent: {}
+[29.156011] (-) TimerEvent: {}
+[29.257445] (-) TimerEvent: {}
+[29.358217] (-) TimerEvent: {}
+[29.459659] (-) TimerEvent: {}
+[29.561092] (-) TimerEvent: {}
+[29.662528] (-) TimerEvent: {}
+[29.763969] (-) TimerEvent: {}
+[29.864670] (-) TimerEvent: {}
+[29.965132] (-) TimerEvent: {}
+[30.066566] (-) TimerEvent: {}
+[30.168010] (-) TimerEvent: {}
+[30.269448] (-) TimerEvent: {}
+[30.370088] (-) TimerEvent: {}
+[30.471552] (-) TimerEvent: {}
+[30.573125] (-) TimerEvent: {}
+[30.674564] (-) TimerEvent: {}
+[30.776008] (-) TimerEvent: {}
+[30.876579] (-) TimerEvent: {}
+[30.978024] (-) TimerEvent: {}
+[31.079511] (-) TimerEvent: {}
+[31.181038] (-) TimerEvent: {}
+[31.282486] (-) TimerEvent: {}
+[31.382988] (-) TimerEvent: {}
+[31.483522] (-) TimerEvent: {}
+[31.584987] (-) TimerEvent: {}
+[31.686459] (-) TimerEvent: {}
+[31.787899] (-) TimerEvent: {}
+[31.888336] (-) TimerEvent: {}
+[31.989771] (-) TimerEvent: {}
+[32.091007] (-) TimerEvent: {}
+[32.192501] (-) TimerEvent: {}
+[32.293948] (-) TimerEvent: {}
+[32.394341] (-) TimerEvent: {}
+[32.495770] (-) TimerEvent: {}
+[32.597215] (-) TimerEvent: {}
+[32.698643] (-) TimerEvent: {}
+[32.800087] (-) TimerEvent: {}
+[32.901522] (-) TimerEvent: {}
+[33.002914] (-) TimerEvent: {}
+[33.062730] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[33.062965] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-transport8 -- found version 8.2.1\n'}
+[33.063393] (robot_arm_simulation) StdoutLine: {'line': b'-- Searching for dependencies of ignition-transport8\n'}
+[33.103477] (-) TimerEvent: {}
+[33.204902] (-) TimerEvent: {}
+[33.306340] (-) TimerEvent: {}
+[33.407724] (-) TimerEvent: {}
+[33.509077] (-) TimerEvent: {}
+[33.610517] (-) TimerEvent: {}
+[33.711950] (-) TimerEvent: {}
+[33.813397] (-) TimerEvent: {}
+[33.914829] (-) TimerEvent: {}
+[34.016144] (-) TimerEvent: {}
+[34.117188] (-) TimerEvent: {}
+[34.218621] (-) TimerEvent: {}
+[34.320068] (-) TimerEvent: {}
+[34.421485] (-) TimerEvent: {}
+[34.466471] (robot_arm_simulation) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") \n'}
+[34.522216] (-) TimerEvent: {}
+[34.623672] (-) TimerEvent: {}
+[34.725097] (-) TimerEvent: {}
+[34.826528] (-) TimerEvent: {}
+[34.927940] (-) TimerEvent: {}
+[35.031708] (-) TimerEvent: {}
+[35.136155] (-) TimerEvent: {}
+[35.244888] (-) TimerEvent: {}
+[35.353638] (-) TimerEvent: {}
+[35.462268] (-) TimerEvent: {}
+[35.570286] (-) TimerEvent: {}
+[35.679028] (-) TimerEvent: {}
+[35.787824] (-) TimerEvent: {}
+[35.896544] (-) TimerEvent: {}
+[35.922746] (robot_arm_simulation) StdoutLine: {'line': b'-- Config-file not installed for ZeroMQ -- checking for pkg-config\n'}
+[35.927471] (robot_arm_simulation) StdoutLine: {'line': b"-- Checking for module 'libzmq >= 4'\n"}
+[35.939994] (robot_arm_simulation) StdoutLine: {'line': b'--   Found libzmq , version 4.3.4\n'}
+[35.982908] (robot_arm_simulation) StdoutLine: {'line': b"-- Checking for module 'uuid'\n"}
+[35.996632] (robot_arm_simulation) StdoutLine: {'line': b'--   Found uuid, version 2.37.2\n'}
+[35.996796] (-) TimerEvent: {}
+[36.028035] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.8.1\n'}
+[36.028462] (robot_arm_simulation) StdoutLine: {'line': b'-- Searching for dependencies of ignition-msgs5\n'}
+[36.097062] (-) TimerEvent: {}
+[36.205260] (-) TimerEvent: {}
+[36.313999] (-) TimerEvent: {}
+[36.422759] (-) TimerEvent: {}
+[36.525699] (-) TimerEvent: {}
+[36.634424] (-) TimerEvent: {}
+[36.743158] (-) TimerEvent: {}
+[36.851931] (-) TimerEvent: {}
+[36.960694] (-) TimerEvent: {}
+[37.065989] (-) TimerEvent: {}
+[37.169229] (-) TimerEvent: {}
+[37.278007] (-) TimerEvent: {}
+[37.386796] (-) TimerEvent: {}
+[37.495624] (-) TimerEvent: {}
+[37.557470] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[37.563795] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.8.1\n'}
+[37.564272] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.14.0\n'}
+[37.564700] (robot_arm_simulation) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3\n'}
+[37.565015] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[37.565126] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[37.598303] (-) TimerEvent: {}
+[37.678931] (robot_arm_simulation) StdoutLine: {'line': b'-- Searching for <ignition-common3> component [graphics]\n'}
+[37.679318] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-common3-graphics -- found version 3.14.0\n'}
+[37.679593] (robot_arm_simulation) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3-graphics\n'}
+[37.680004] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[37.680977] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-fuel_tools4 -- found version 4.4.0\n'}
+[37.681176] (robot_arm_simulation) StdoutLine: {'line': b'-- Searching for dependencies of ignition-fuel_tools4\n'}
+[37.699880] (-) TimerEvent: {}
+[37.808634] (-) TimerEvent: {}
+[37.917372] (-) TimerEvent: {}
+[38.026149] (-) TimerEvent: {}
+[38.134872] (-) TimerEvent: {}
+[38.242177] (-) TimerEvent: {}
+[38.343819] (-) TimerEvent: {}
+[38.452562] (-) TimerEvent: {}
+[38.561328] (-) TimerEvent: {}
+[38.669921] (-) TimerEvent: {}
+[38.771281] (-) TimerEvent: {}
+[38.871661] (-) TimerEvent: {}
+[38.972033] (-) TimerEvent: {}
+[39.072441] (-) TimerEvent: {}
+[39.172825] (-) TimerEvent: {}
+[39.273226] (-) TimerEvent: {}
+[39.371505] (robot_arm_simulation) StdoutLine: {'line': b"-- Checking for module 'jsoncpp'\n"}
+[39.373326] (-) TimerEvent: {}
+[39.382393] (robot_arm_simulation) StdoutLine: {'line': b'--   Found jsoncpp, version 1.9.5\n'}
+[39.418269] (robot_arm_simulation) StdoutLine: {'line': b"-- Checking for module 'libzip'\n"}
+[39.430905] (robot_arm_simulation) StdoutLine: {'line': b'--   Found libzip, version 1.7.3\n'}
+[39.459008] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.14.0\n'}
+[39.459500] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[39.459588] (robot_arm_simulation) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.8.1\n'}
+[39.460811] (robot_arm_simulation) StdoutLine: {'line': b'-- Gazebo version: 11.10\n'}
+[39.461686] (robot_arm_simulation) StdoutLine: {'line': b'-- Found rviz2: 11.2.17 (/opt/ros/humble/share/rviz2/cmake)\n'}
+[39.462208] (robot_arm_simulation) StdoutLine: {'line': b'-- Found ros2_control: 2.51.0 (/opt/ros/humble/share/ros2_control/cmake)\n'}
+[39.462295] (robot_arm_simulation) StdoutLine: {'line': b'-- Found ros2_controllers: 2.49.1 (/opt/ros/humble/share/ros2_controllers/cmake)\n'}
+[39.462475] (robot_arm_simulation) StdoutLine: {'line': b'-- Found controller_manager: 2.51.0 (/opt/ros/humble/share/controller_manager/cmake)\n'}
+[39.473559] (-) TimerEvent: {}
+[39.523825] (robot_arm_simulation) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[39.573732] (-) TimerEvent: {}
+[39.599242] (robot_arm_simulation) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[39.600847] (robot_arm_simulation) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[39.601280] (robot_arm_simulation) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[39.601584] (robot_arm_simulation) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[39.602490] (robot_arm_simulation) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[39.603219] (robot_arm_simulation) StdoutLine: {'line': b'-- Configuring done\n'}
+[39.609223] (robot_arm_simulation) StdoutLine: {'line': b'-- Generating done\n'}
+[39.612473] (robot_arm_simulation) StdoutLine: {'line': b'-- Build files have been written to: /home/armoumad/robot_ws/build/robot_arm_simulation\n'}
+[39.638625] (robot_arm_simulation) CommandEnded: {'returncode': 0}
+[39.639674] (robot_arm_simulation) JobProgress: {'identifier': 'robot_arm_simulation', 'progress': 'install'}
+[39.647280] (robot_arm_simulation) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/armoumad/robot_ws/build/robot_arm_simulation'], 'cwd': '/home/armoumad/robot_ws/build/robot_arm_simulation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'armoumad'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/armoumad'), ('OLDPWD', '/home/armoumad'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/armoumad/robot_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'armoumad'), ('NAME', 'armd'), ('WSL_INTEROP', '/run/WSL/302_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/armoumad/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Siemens/Automation/SCADA-RT_V11/WinCC/Bin:/mnt/c/Program Files/Common Files/Siemens/Automation/Simatic OAM/bin:/mnt/c/Program Files (x86)/Common Files/Siemens/Bin:/mnt/c/Program Files (x86)/Common Files/Siemens/CommonArchiving:/mnt/c/Program Files (x86)/Common Files/Siemens/ACE/Bin:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Python313/Scripts/:/mnt/c/Python313/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/mosquitto:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/R2024b/runtime/win64:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Users/mouma/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/mouma/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/mouma/AppData/Roaming/npm:/mnt/c/Users/mouma/.dotnet/tools:/mnt/c/flutter/src/flutter/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/armoumad/robot_ws/build/robot_arm_simulation'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', ''), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[39.653838] (robot_arm_simulation) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[39.654184] (robot_arm_simulation) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[39.654770] (robot_arm_simulation) StdoutLine: {'line': b'-- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//launch/combined.launch.py\n'}
+[39.655073] (robot_arm_simulation) StdoutLine: {'line': b'-- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//launch/gazebo.launch.py\n'}
+[39.655158] (robot_arm_simulation) StdoutLine: {'line': b'-- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//launch/rviz.launch.py\n'}
+[39.655409] (robot_arm_simulation) StdoutLine: {'line': b'-- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//urdf/inertial_macros.xacro\n'}
+[39.655745] (robot_arm_simulation) StdoutLine: {'line': b'-- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//urdf/robot_arm.urdf.xacro\n'}
+[39.656031] (robot_arm_simulation) StdoutLine: {'line': b'-- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//config/arm_controllers.yaml\n'}
+[39.656107] (robot_arm_simulation) StdoutLine: {'line': b'-- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//rviz/arm_config.rivz\n'}
+[39.656704] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//worlds/empty.world\n'}
+[39.664698] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/lib/robot_arm_simulation/arm_controller.py\n'}
+[39.672512] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/lib/robot_arm_simulation/joint_positions_publisher.py\n'}
+[39.673935] (-) TimerEvent: {}
+[39.682120] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/ament_index/resource_index/package_run_dependencies/robot_arm_simulation\n'}
+[39.691087] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/ament_index/resource_index/parent_prefix_path/robot_arm_simulation\n'}
+[39.698297] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/environment/ament_prefix_path.sh\n'}
+[39.706250] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/environment/ament_prefix_path.dsv\n'}
+[39.713181] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/environment/path.sh\n'}
+[39.720149] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/environment/path.dsv\n'}
+[39.728458] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/local_setup.bash\n'}
+[39.735237] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/local_setup.sh\n'}
+[39.743546] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/local_setup.zsh\n'}
+[39.750275] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/local_setup.dsv\n'}
+[39.758115] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/package.dsv\n'}
+[39.765293] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/ament_index/resource_index/packages/robot_arm_simulation\n'}
+[39.772838] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/cmake/robot_arm_simulationConfig.cmake\n'}
+[39.774146] (-) TimerEvent: {}
+[39.780116] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/cmake/robot_arm_simulationConfig-version.cmake\n'}
+[39.787210] (robot_arm_simulation) StdoutLine: {'line': b'-- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/package.xml\n'}
+[39.796644] (robot_arm_simulation) CommandEnded: {'returncode': 0}
+[39.823379] (robot_arm_simulation) JobEnded: {'identifier': 'robot_arm_simulation', 'rc': 0}
+[39.824319] (-) EventReactorShutdown: {}

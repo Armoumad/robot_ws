@@ -1,0 +1,1 @@
+rclcpp;rclpy;std_msgs;geometry_msgs;sensor_msgs;trajectory_msgs;urdf;robot_state_publisher;joint_state_publisher;joint_state_publisher_gui;xacro;gazebo_ros;gazebo_ros_pkgs;gazebo_plugins;rviz2;rviz_common;ros2_control;ros2_controllers;controller_manager;joint_trajectory_controller;position_controllers;launch;launch_ros;ament_lint_auto;ament_lint_common
