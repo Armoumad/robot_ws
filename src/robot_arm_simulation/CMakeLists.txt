@@ -25,6 +25,7 @@ find_package(controller_manager REQUIRED)
 # Install directories
 install(DIRECTORY
   launch
+  meshes
   urdf
   config
   rviz

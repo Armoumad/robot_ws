@@ -28,6 +28,12 @@
     <xacro:property name="forearm_radius" value="0.025"/>
     <xacro:property name="forearm_mass" value="1.0"/>
 
+    <!-- Gripper joint properties -->
+    <xacro:property name="joint_effort" value="50"/>
+    <xacro:property name="joint_velocity" value="2.0"/>
+    <xacro:property name="joint_damping" value="0.1"/>
+    <xacro:property name="joint_friction" value="0.05"/>
+
     <!-- Materials -->
     <material name="blue">
         <color rgba="0.2 0.2 1 1"/>
@@ -41,6 +47,21 @@
     <material name="orange">
         <color rgba="1 0.5 0 1"/>
     </material>
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <!-- Gripper link inertial macro -->
+    <xacro:macro name="gripper_link_inertial">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia
+                ixx="0.000001" ixy="0.0" ixz="0.0"
+                iyy="0.000001" iyz="0.0"
+                izz="0.000001"/>
+        </inertial>
+    </xacro:macro>
 
     <!-- World link -->
     <link name="world"/>
@@ -187,34 +208,230 @@
         </xacro:inertial_cylinder>
     </link>
 
-    <!-- Wrist joint and link -->
-    <joint name="wrist_joint" type="revolute">
-        <parent link="forearm_link"/>
-        <child link="wrist_link"/>
-        <origin xyz="0 0 ${forearm_length}" rpy="0 0 0"/>
-        <axis xyz="1 0 0"/>
-        <limit lower="-${PI}" upper="${PI}" effort="100" velocity="1.0"/>
-        <dynamics damping="0.2" friction="0.05"/>
-    </joint>
+    <!-- MACRO DU GRIPPER ADAPTATIF -->
+    <xacro:macro name="adaptive_gripper" params="parent prefix *origin">
+        <!-- Joint d'attachement au parent -->
+        <joint name="${prefix}gripper_attachment" type="fixed">
+            <parent link="${parent}"/>
+            <child link="${prefix}gripper_base"/>
+            <xacro:insert_block name="origin"/>
+        </joint>
 
-    <link name="wrist_link">
-        <visual>
-            <origin xyz="0 0 0.02" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.04 0.04 0.04"/>
-            </geometry>
-            <material name="orange"/>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0.02" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.04 0.04 0.04"/>
-            </geometry>
-        </collision>
-        <xacro:inertial_box mass="0.2" x="0.04" y="0.04" z="0.04">
-            <origin xyz="0 0 0.02" rpy="0 0 0"/>
-        </xacro:inertial_box>
-    </link>
+        <!-- Base du gripper -->
+        <link name="${prefix}gripper_base">
+            <inertial>
+                <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
+                <mass value="0.07"/>
+                <inertia
+                    ixx="0.000010725" ixy="0.0" ixz="0.0"
+                    iyy="0.000014392" iyz="0.0"
+                    izz="0.000018517"/>
+            </inertial>
+            <visual>
+                <geometry>
+                    <mesh filename="file://$(find robot_arm_simulation)/meshes/gripper_base.dae"/>
+                </geometry>
+                <origin xyz="0 0.0 -0.013" rpy="0 0 0"/>
+                <material name="grey"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.065 0.025 0.025"/>
+                </geometry>
+                <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            </collision>
+        </link>
+
+        <!-- Doigt gauche 1 -->
+        <link name="${prefix}gripper_left1">
+            <xacro:gripper_link_inertial/>
+            <visual>
+                <geometry>
+                    <mesh filename="file://$(find robot_arm_simulation)/meshes/gripper_left1.dae"/>
+                </geometry>
+                <origin xyz="0.039 -0.0133 -0.012" rpy="0 0 0"/>
+                <material name="white"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.013 0.02 0.015"/>
+                </geometry>
+                <origin xyz="0.013 0.042 -0.010" rpy="0 0 0"/>
+            </collision>
+        </link>
+
+        <!-- Doigt gauche 2 -->
+        <link name="${prefix}gripper_left2">
+            <xacro:gripper_link_inertial/>
+            <visual>
+                <geometry>
+                    <mesh filename="file://$(find robot_arm_simulation)/meshes/gripper_left2.dae"/>
+                </geometry>
+                <origin xyz="0.005 -0.0195 -0.012" rpy="0 0 0"/>
+                <material name="white"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.02 0.02 0.02"/>
+                </geometry>
+                <origin xyz="-0.025 0.0 -0.010" rpy="0 0 0"/>
+            </collision>
+        </link>
+
+        <!-- Doigt gauche 3 -->
+        <link name="${prefix}gripper_left3">
+            <xacro:gripper_link_inertial/>
+            <visual>
+                <geometry>
+                    <mesh filename="file://$(find robot_arm_simulation)/meshes/gripper_left3.dae"/>
+                </geometry>
+                <origin xyz="0.012 0.0025 -0.012" rpy="0 0 0"/>
+                <material name="white"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.01 0.01 0.01"/>
+                </geometry>
+                <origin xyz="-0.014 0.005 0.005" rpy="0 0 0"/>
+            </collision>
+        </link>
+
+        <!-- Doigt droit 1 -->
+        <link name="${prefix}gripper_right1">
+            <xacro:gripper_link_inertial/>
+            <visual>
+                <geometry>
+                    <mesh filename="file://$(find robot_arm_simulation)/meshes/gripper_right1.dae"/>
+                </geometry>
+                <origin xyz="-0.039 -0.0133 -0.012" rpy="0 0 0"/>
+                <material name="white"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.013 0.02 0.015"/>
+                </geometry>
+                <origin xyz="-0.013 0.042 -0.010" rpy="0 0 0"/>
+            </collision>
+        </link>
+
+        <!-- Doigt droit 2 -->
+        <link name="${prefix}gripper_right2">
+            <xacro:gripper_link_inertial/>
+            <visual>
+                <geometry>
+                    <mesh filename="file://$(find robot_arm_simulation)/meshes/gripper_right2.dae"/>
+                </geometry>
+                <origin xyz="-0.005 -0.0195 -0.012" rpy="0 0 0"/>
+                <material name="white"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.02 0.02 0.02"/>
+                </geometry>
+                <origin xyz="0.025 0.0 -0.010" rpy="0 0 0"/>
+            </collision>
+        </link>
+
+        <!-- Doigt droit 3 -->
+        <link name="${prefix}gripper_right3">
+            <xacro:gripper_link_inertial/>
+            <visual>
+                <geometry>
+                    <mesh filename="file://$(find robot_arm_simulation)/meshes/gripper_right3.dae"/>
+                </geometry>
+                <origin xyz="-0.012 0.0025 -0.012" rpy="0 0 0"/>
+                <material name="white"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.01 0.01 0.01"/>
+                </geometry>
+                <origin xyz="0.014 0.005 0.005" rpy="0 0 0"/>
+            </collision>
+        </link>
+
+        <!-- JOINTS DU GRIPPER -->
+
+        <!-- Joint contrôleur principal -->
+        <joint name="${prefix}gripper_controller" type="revolute">
+            <axis xyz="0 0 1"/>
+            <limit effort="${joint_effort}" lower="-0.7" upper="0.15" velocity="${joint_velocity}"/>
+            <parent link="${prefix}gripper_base"/>
+            <child link="${prefix}gripper_left3"/>
+            <origin xyz="-0.012 0.005 0" rpy="0 0 0"/>
+            <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+        </joint>
+
+        <!-- Joint base vers doigt gauche 2 -->
+        <joint name="${prefix}gripper_base_to_left2" type="revolute">
+            <axis xyz="0 0 1"/>
+            <limit effort="${joint_effort}" lower="-0.8" upper="0.5" velocity="${joint_velocity}"/>
+            <parent link="${prefix}gripper_base"/>
+            <child link="${prefix}gripper_left2"/>
+            <origin xyz="-0.005 0.027 0" rpy="0 0 0"/>
+            <mimic joint="${prefix}gripper_controller" multiplier="1.0" offset="0"/>
+            <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+        </joint>
+
+        <!-- Joint doigt gauche 3 vers doigt gauche 1 -->
+        <joint name="${prefix}gripper_left3_to_left1" type="revolute">
+            <axis xyz="0 0 1"/>
+            <limit effort="${joint_effort}" lower="-0.5" upper="0.5" velocity="${joint_velocity}"/>
+            <parent link="${prefix}gripper_left3"/>
+            <child link="${prefix}gripper_left1"/>
+            <origin xyz="-0.027 0.016 0" rpy="0 0 0"/>
+            <mimic joint="${prefix}gripper_controller" multiplier="-1.0" offset="0"/>
+            <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+        </joint>
+
+        <!-- Joint base vers doigt droit 3 -->
+        <joint name="${prefix}gripper_base_to_right3" type="revolute">
+            <axis xyz="0 0 1"/>
+            <limit effort="${joint_effort}" lower="-0.15" upper="0.7" velocity="${joint_velocity}"/>
+            <parent link="${prefix}gripper_base"/>
+            <child link="${prefix}gripper_right3"/>
+            <origin xyz="0.012 0.005 0" rpy="0 0 0"/>
+            <mimic joint="${prefix}gripper_controller" multiplier="-1.0" offset="0"/>
+            <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+        </joint>
+
+        <!-- Joint base vers doigt droit 2 -->
+        <joint name="${prefix}gripper_base_to_right2" type="revolute">
+            <axis xyz="0 0 1"/>
+            <limit effort="${joint_effort}" lower="-0.5" upper="0.8" velocity="${joint_velocity}"/>
+            <parent link="${prefix}gripper_base"/>
+            <child link="${prefix}gripper_right2"/>
+            <origin xyz="0.005 0.027 0" rpy="0 0 0"/>
+            <mimic joint="${prefix}gripper_controller" multiplier="-1.0" offset="0"/>
+            <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+        </joint>
+
+        <!-- Joint doigt droit 3 vers doigt droit 1 -->
+        <joint name="${prefix}gripper_right3_to_right1" type="revolute">
+            <axis xyz="0 0 1"/>
+            <limit effort="${joint_effort}" lower="-0.5" upper="0.5" velocity="${joint_velocity}"/>
+            <parent link="${prefix}gripper_right3"/>
+            <child link="${prefix}gripper_right1"/>
+            <origin xyz="0.027 0.016 0" rpy="0 0 0"/>
+            <mimic joint="${prefix}gripper_controller" multiplier="1.0" offset="0"/>
+            <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
+        </joint>
+
+        <gazebo reference="${prefix}gripper_base">
+            <visual>
+                <material>
+                    <ambient>0.5 0.5 0.5 1</ambient>
+                    <diffuse>0.5 0.5 0.5 1</diffuse>
+                    <specular>0.5 0.5 0.5 1</specular>
+                </material>
+            </visual>
+        </gazebo>
+    </xacro:macro>
+
+    <!-- INSTANCIATION DU GRIPPER ADAPTATIF - Attaché au forearm_link -->
+    <xacro:adaptive_gripper parent="forearm_link" prefix="">
+        <origin xyz="0 0 ${forearm_length}" rpy="0 0 0"/>
+    </xacro:adaptive_gripper>
 
     <!-- ROS2 Control -->
     <ros2_control name="RobotSystem" type="system">
@@ -249,6 +466,7 @@
             <state_interface name="velocity"/>
         </joint>
         
+        
         <joint name="forearm_joint">
             <command_interface name="position">
                 <param name="min">-1.5708</param>
@@ -258,10 +476,11 @@
             <state_interface name="velocity"/>
         </joint>
         
-        <joint name="wrist_joint">
+        <!-- Contrôle du gripper -->
+        <joint name="gripper_controller">
             <command_interface name="position">
-                <param name="min">-3.14159</param>
-                <param name="max">3.14159</param>
+                <param name="min">-0.7</param>
+                <param name="max">0.15</param>
             </command_interface>
             <state_interface name="position"/>
             <state_interface name="velocity"/>
@@ -295,9 +514,34 @@
     <gazebo reference="forearm_link">
         <material>Gazebo/Blue</material>
     </gazebo>
+
+    <!-- Gazebo materials pour le gripper -->
+    <gazebo reference="gripper_base">
+        <material>Gazebo/Grey</material>
+    </gazebo>
     
-    <gazebo reference="wrist_link">
-        <material>Gazebo/Orange</material>
+    <gazebo reference="gripper_left1">
+        <material>Gazebo/White</material>
+    </gazebo>
+    
+    <gazebo reference="gripper_left2">
+        <material>Gazebo/White</material>
+    </gazebo>
+    
+    <gazebo reference="gripper_left3">
+        <material>Gazebo/White</material>
+    </gazebo>
+    
+    <gazebo reference="gripper_right1">
+        <material>Gazebo/White</material>
+    </gazebo>
+    
+    <gazebo reference="gripper_right2">
+        <material>Gazebo/White</material>
+    </gazebo>
+    
+    <gazebo reference="gripper_right3">
+        <material>Gazebo/White</material>
     </gazebo>
 
 </robot>

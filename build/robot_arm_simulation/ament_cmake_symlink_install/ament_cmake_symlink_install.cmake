@@ -310,8 +310,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "launch" "urdf" "config" "rviz" "worlds" "DESTINATION" "share/robot_arm_simulation/")
-ament_cmake_symlink_install_directory("/home/armoumad/robot_ws/src/robot_arm_simulation" DIRECTORY "launch" "urdf" "config" "rviz" "worlds" "DESTINATION" "share/robot_arm_simulation/")
+# install(DIRECTORY "launch" "meshes" "urdf" "config" "rviz" "worlds" "DESTINATION" "share/robot_arm_simulation/")
+ament_cmake_symlink_install_directory("/home/armoumad/robot_ws/src/robot_arm_simulation" DIRECTORY "launch" "meshes" "urdf" "config" "rviz" "worlds" "DESTINATION" "share/robot_arm_simulation/")
 
 # install(PROGRAMS "scripts/arm_controller.py" "scripts/joint_positions_publisher.py" "DESTINATION" "lib/robot_arm_simulation")
 ament_cmake_symlink_install_programs("/home/armoumad/robot_ws/src/robot_arm_simulation" PROGRAMS "scripts/arm_controller.py" "scripts/joint_positions_publisher.py" "DESTINATION" "lib/robot_arm_simulation")

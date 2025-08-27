@@ -5,9 +5,13 @@ controller_manager:
     arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
+# Contrôleur principal du bras (sans wrist_joint)
 arm_controller:
   ros__parameters:
     joints:
@@ -15,8 +19,7 @@ arm_controller:
       - upper_arm_joint
       - elbow_joint
       - forearm_joint
-      - wrist_joint
-
+    
     command_interfaces:
       - position
 
@@ -46,10 +49,35 @@ arm_controller:
       forearm_joint:
         trajectory: 0.1
         goal: 0.05
-      wrist_joint:
-        trajectory: 0.1
-        goal: 0.05
 
+# Contrôleur séparé pour le gripper
+gripper_controller:
+  ros__parameters:
+    joints:
+      - gripper_controller
+    
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
+
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+
+    allow_partial_joints_goal: true
+    allow_integration_in_goal_trajectories: true
+    allow_nonzero_velocity_at_trajectory_end: true
+
+    constraints:
+      stopped_velocity_tolerance: 0.05
+      goal_time: 0.0
+      gripper_controller:
+        trajectory: 0.2
+        goal: 0.1
+
+# Broadcaster pour l'état de tous les joints
 joint_state_broadcaster:
   ros__parameters:
     joints:
@@ -57,4 +85,4 @@ joint_state_broadcaster:
       - upper_arm_joint
       - elbow_joint
       - forearm_joint
-      - wrist_joint
+      - gripper_controller

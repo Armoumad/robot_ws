@@ -1,0 +1,146 @@
+[0.022s] Invoking command in '/home/armoumad/robot_ws/build/robot_arm_simulation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/armoumad/robot_ws/build/robot_arm_simulation -- -j8 -l8
+[0.181s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.334s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.359s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.564s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.568s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.579s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.593s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.611s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.668s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.671s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[6.896s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[6.959s] -- Found rclpy: 3.3.16 (/opt/ros/humble/share/rclpy/cmake)
+[6.961s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[6.982s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[7.005s] -- Found trajectory_msgs: 4.9.0 (/opt/ros/humble/share/trajectory_msgs/cmake)
+[7.025s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[8.480s] -- Found robot_state_publisher: 3.0.3 (/opt/ros/humble/share/robot_state_publisher/cmake)
+[8.488s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[8.490s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[8.608s] -- Found xacro: 2.0.13 (/opt/ros/humble/share/xacro/cmake)
+[8.610s] -- Found gazebo_ros: 3.9.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[8.660s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[8.719s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[8.723s] -- Looking for ignition-math6 -- found version 6.15.1
+[8.733s] -- Searching for dependencies of ignition-math6
+[8.737s] -- Looking for OGRE...
+[8.743s] -- Found Ogre Ghadamon (1.9.0)
+[8.744s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[8.752s] -- Looking for OGRE_Paging...
+[8.752s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[8.752s] -- Looking for OGRE_Terrain...
+[8.752s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[8.752s] -- Looking for OGRE_Property...
+[8.752s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[8.752s] -- Looking for OGRE_RTShaderSystem...
+[8.752s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[8.752s] -- Looking for OGRE_Volume...
+[8.752s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[8.752s] -- Looking for OGRE_Overlay...
+[8.752s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[34.344s] -- Looking for ignition-math6 -- found version 6.15.1
+[34.347s] -- Looking for ignition-transport8 -- found version 8.2.1
+[34.347s] -- Searching for dependencies of ignition-transport8
+[36.071s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[37.780s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[37.786s] -- Checking for module 'libzmq >= 4'
+[37.806s] --   Found libzmq , version 4.3.4
+[37.849s] -- Checking for module 'uuid'
+[37.862s] --   Found uuid, version 2.37.2
+[37.893s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[37.894s] -- Searching for dependencies of ignition-msgs5
+[39.587s] -- Looking for ignition-math6 -- found version 6.15.1
+[39.597s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[39.598s] -- Looking for ignition-common3 -- found version 3.14.0
+[39.598s] -- Searching for dependencies of ignition-common3
+[39.599s] -- Looking for dlfcn.h - found
+[39.599s] -- Looking for libdl - found
+[39.762s] -- Searching for <ignition-common3> component [graphics]
+[39.764s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[39.764s] -- Searching for dependencies of ignition-common3-graphics
+[39.765s] -- Looking for ignition-math6 -- found version 6.15.1
+[39.768s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[39.768s] -- Searching for dependencies of ignition-fuel_tools4
+[41.767s] -- Checking for module 'jsoncpp'
+[41.779s] --   Found jsoncpp, version 1.9.5
+[41.826s] -- Checking for module 'libzip'
+[41.841s] --   Found libzip, version 1.7.3
+[41.875s] -- Looking for ignition-common3 -- found version 3.14.0
+[41.875s] -- Looking for ignition-math6 -- found version 6.15.1
+[41.876s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[41.882s] -- Gazebo version: 11.10
+[41.884s] -- Found rviz2: 11.2.17 (/opt/ros/humble/share/rviz2/cmake)
+[41.887s] -- Found ros2_control: 2.51.0 (/opt/ros/humble/share/ros2_control/cmake)
+[41.889s] -- Found ros2_controllers: 2.49.1 (/opt/ros/humble/share/ros2_controllers/cmake)
+[41.890s] -- Found controller_manager: 2.51.0 (/opt/ros/humble/share/controller_manager/cmake)
+[42.021s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[42.123s] -- Added test 'copyright' to check source files copyright and LICENSE
+[42.128s] -- Added test 'flake8' to check Python code syntax and style conventions
+[42.129s] -- Added test 'lint_cmake' to check CMake code style
+[42.131s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[42.134s] -- Added test 'xmllint' to check XML markup files
+[42.138s] -- Configuring done
+[42.155s] -- Generating done
+[42.159s] -- Build files have been written to: /home/armoumad/robot_ws/build/robot_arm_simulation
+[42.198s] Invoked command in '/home/armoumad/robot_ws/build/robot_arm_simulation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/armoumad/robot_ws/build/robot_arm_simulation -- -j8 -l8
+[42.208s] Invoking command in '/home/armoumad/robot_ws/build/robot_arm_simulation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/armoumad/robot_ws/build/robot_arm_simulation
+[42.214s] -- Install configuration: ""
+[42.215s] -- Execute custom install script
+[42.215s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//launch/combined.launch.py
+[42.215s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//launch/gazebo.launch.py
+[42.215s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//launch/rviz.launch.py
+[42.216s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/arm_base.dae
+[42.225s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/arm_base.dae:Zone.Identifier
+[42.232s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/arm_base.stl
+[42.240s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/arm_base.stl:Zone.Identifier
+[42.249s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/elbow_link.dae
+[42.258s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/elbow_link.dae:Zone.Identifier
+[42.266s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/forearm.dae
+[42.274s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/forearm.dae:Zone.Identifier
+[42.282s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_base.dae
+[42.291s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_base.dae:Zone.Identifier
+[42.299s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_base.dae:Zone.Identifier:Zone.Identifier
+[42.307s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_left1.dae
+[42.316s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_left1.dae:Zone.Identifier
+[42.324s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_left1.dae:Zone.Identifier:Zone.Identifier
+[42.333s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_left2.dae
+[42.342s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_left2.dae:Zone.Identifier
+[42.351s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_left2.dae:Zone.Identifier:Zone.Identifier
+[42.360s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_left3.dae
+[42.368s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_left3.dae:Zone.Identifier
+[42.377s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_left3.dae:Zone.Identifier:Zone.Identifier
+[42.386s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_right1.dae
+[42.394s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_right1.dae:Zone.Identifier
+[42.402s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_right1.dae:Zone.Identifier:Zone.Identifier
+[42.411s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_right2.dae
+[42.419s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_right2.dae:Zone.Identifier
+[42.427s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_right2.dae:Zone.Identifier:Zone.Identifier
+[42.435s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_right3.dae
+[42.443s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_right3.dae:Zone.Identifier
+[42.451s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_right3.dae:Zone.Identifier:Zone.Identifier
+[42.459s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/upper_arm.dae
+[42.467s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/upper_arm.dae:Zone.Identifier
+[42.476s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//urdf/inertial_macros.xacro
+[42.476s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//urdf/robot_arm.urdf.xacro
+[42.476s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//config/arm_controllers.yaml
+[42.476s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//rviz/arm_config.rivz
+[42.476s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//worlds/empty.world
+[42.476s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/lib/robot_arm_simulation/arm_controller.py
+[42.476s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/lib/robot_arm_simulation/joint_positions_publisher.py
+[42.477s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/ament_index/resource_index/package_run_dependencies/robot_arm_simulation
+[42.477s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/ament_index/resource_index/parent_prefix_path/robot_arm_simulation
+[42.477s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/environment/ament_prefix_path.sh
+[42.477s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/environment/ament_prefix_path.dsv
+[42.477s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/environment/path.sh
+[42.477s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/environment/path.dsv
+[42.477s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/local_setup.bash
+[42.477s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/local_setup.sh
+[42.477s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/local_setup.zsh
+[42.478s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/local_setup.dsv
+[42.478s] -- Symlinking: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/package.dsv
+[42.486s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/ament_index/resource_index/packages/robot_arm_simulation
+[42.486s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/cmake/robot_arm_simulationConfig.cmake
+[42.486s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/cmake/robot_arm_simulationConfig-version.cmake
+[42.486s] -- Up-to-date symlink: /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation/package.xml
+[42.489s] Invoked command in '/home/armoumad/robot_ws/build/robot_arm_simulation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/armoumad/robot_ws/build/robot_arm_simulation
