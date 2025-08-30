@@ -1,247 +1,176 @@
 #!/usr/bin/env python3
 
+import math
+from typing import List
+
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
+from rclpy.duration import Duration
+
 from control_msgs.action import FollowJointTrajectory
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from sensor_msgs.msg import JointState
-import math
-import time
-import threading
 
 
 class ArmController(Node):
     def __init__(self):
         super().__init__('arm_controller')
-        
-        # Action clients for trajectory control
-        self.arm_action_client = ActionClient(
-            self, 
-            FollowJointTrajectory, 
-            '/arm_controller/follow_joint_trajectory'
-        )
-        
-        self.gripper_action_client = ActionClient(
-            self, 
-            FollowJointTrajectory, 
-            '/gripper_controller/follow_joint_trajectory'
-        )
-        
-        # Subscriber for joint states
-        self.joint_state_subscriber = self.create_subscription(
-            JointState,
-            '/joint_states',
-            self.joint_state_callback,
-            10
-        )
-        
-        # Joint names (updated without wrist_joint)
-        self.arm_joint_names = [
+
+        # ---- Action servers ----
+        self.arm_action_ns = '/arm_controller/follow_joint_trajectory'
+        self.gripper_action_ns = '/gripper_controller/follow_joint_trajectory'
+
+        # Joints du bras
+        self.arm_joints = [
             'shoulder_joint',
-            'upper_arm_joint', 
+            'upper_arm_joint',
             'elbow_joint',
-            'forearm_joint'
+            'forearm_joint',
         ]
-        
-        self.gripper_joint_names = [
-            'gripper_controller'
-        ]
-        
-        # Current joint positions
-        self.current_arm_positions = [0.0] * len(self.arm_joint_names)
-        self.current_gripper_position = [0.0] * len(self.gripper_joint_names)
-        
-        self.get_logger().info('Arm Controller initialized. Waiting for action servers...')
-        
-        # Wait for action servers
-        self.arm_action_client.wait_for_server()
-        self.gripper_action_client.wait_for_server()
-        self.get_logger().info('Action servers connected!')
-        
-        # Start demo movements
-        self.demo_timer = self.create_timer(15.0, self.demo_movements)
-        
-    def joint_state_callback(self, msg):
-        """Update current joint positions"""
-        # Update arm joint positions
-        for i, name in enumerate(self.arm_joint_names):
-            if name in msg.name:
-                idx = msg.name.index(name)
-                self.current_arm_positions[i] = msg.position[idx]
-        
-        # Update gripper position
-        for i, name in enumerate(self.gripper_joint_names):
-            if name in msg.name:
-                idx = msg.name.index(name)
-                self.current_gripper_position[i] = msg.position[idx]
-    
-    def send_arm_trajectory(self, positions, duration=3.0):
-        """Send trajectory to arm controller"""
-        if len(positions) != len(self.arm_joint_names):
-            self.get_logger().error(f'Expected {len(self.arm_joint_names)} positions, got {len(positions)}')
-            return None
-            
-        goal_msg = FollowJointTrajectory.Goal()
-        
-        # Create trajectory
-        trajectory = JointTrajectory()
-        trajectory.joint_names = self.arm_joint_names
-        
-        # Start point (current position)
-        start_point = JointTrajectoryPoint()
-        start_point.positions = self.current_arm_positions.copy()
-        start_point.time_from_start.sec = 0
-        start_point.time_from_start.nanosec = 0
-        
-        # End point (target position)
-        end_point = JointTrajectoryPoint()
-        end_point.positions = positions
-        end_point.time_from_start.sec = int(duration)
-        end_point.time_from_start.nanosec = int((duration % 1) * 1e9)
-        
-        trajectory.points = [start_point, end_point]
-        goal_msg.trajectory = trajectory
-        
-        # Send goal
-        self.get_logger().info(f'Sending arm trajectory: {positions}')
-        future = self.arm_action_client.send_goal_async(goal_msg)
-        
-        return future
-    
-    def send_gripper_trajectory(self, position, duration=2.0):
-        """Send trajectory to gripper controller"""
-        goal_msg = FollowJointTrajectory.Goal()
-        
-        # Create trajectory
-        trajectory = JointTrajectory()
-        trajectory.joint_names = self.gripper_joint_names
-        
-        # Start point (current position)
-        start_point = JointTrajectoryPoint()
-        start_point.positions = self.current_gripper_position.copy()
-        start_point.time_from_start.sec = 0
-        start_point.time_from_start.nanosec = 0
-        
-        # End point (target position)
-        end_point = JointTrajectoryPoint()
-        end_point.positions = [position]
-        end_point.time_from_start.sec = int(duration)
-        end_point.time_from_start.nanosec = int((duration % 1) * 1e9)
-        
-        trajectory.points = [start_point, end_point]
-        goal_msg.trajectory = trajectory
-        
-        # Send goal
-        self.get_logger().info(f'Sending gripper trajectory: {position}')
-        future = self.gripper_action_client.send_goal_async(goal_msg)
-        
-        return future
-    
-    def move_to_home(self):
-        """Move arm to home position"""
-        home_positions = [0.0, 0.0, 0.0, 0.0]  # 4 joints only
-        return self.send_arm_trajectory(home_positions, 2.0)
-    
-    def move_to_pose1(self):
-        """Move arm to predefined pose 1"""
-        pose1_positions = [1.57, 0.5, -1.0, 0.5]  # 90° shoulder, raised arm
-        return self.send_arm_trajectory(pose1_positions, 3.0)
-    
-    def move_to_pose2(self):
-        """Move arm to predefined pose 2"""
-        pose2_positions = [-1.57, -0.5, 1.5, -0.8]  # Complex pose
-        return self.send_arm_trajectory(pose2_positions, 3.0)
-    
-    def move_to_pose3(self):
-        """Move arm to predefined pose 3"""
-        pose3_positions = [0.0, 1.2, -2.0, 1.0]  # Extended arm
-        return self.send_arm_trajectory(pose3_positions, 3.0)
-    
-    def open_gripper(self):
-        """Open gripper"""
-        return self.send_gripper_trajectory(0.1, 1.5)  # Open position
-    
-    def close_gripper(self):
-        """Close gripper"""
-        return self.send_gripper_trajectory(-0.5, 1.5)  # Close position
-    
-    def partially_close_gripper(self):
-        """Partially close gripper"""
-        return self.send_gripper_trajectory(-0.2, 1.5)  # Partial close
-    
-    def wait_for_completion(self, future, timeout=5.0):
-        """Wait for action to complete"""
-        if future is None:
+
+        # Joint du gripper
+        self.gripper_joint = ['gripper_controller']
+
+        # Positions courantes
+        self.current_arm_positions = [0.0] * len(self.arm_joints)
+        self.current_gripper_position = 0.0
+
+        # Action clients
+        self.arm_client = ActionClient(self, FollowJointTrajectory, self.arm_action_ns)
+        self.gripper_client = ActionClient(self, FollowJointTrajectory, self.gripper_action_ns)
+
+        # Subscription joint_states
+        self.joint_state_sub = self.create_subscription(
+            JointState, '/joint_states', self.joint_state_callback, 10
+        )
+
+        self.get_logger().info("Waiting for action servers...")
+        if not self.arm_client.wait_for_server(timeout_sec=10.0):
+            self.get_logger().error("arm_controller action server not available.")
+        else:
+            self.get_logger().info("Arm action server connected.")
+
+        if not self.gripper_client.wait_for_server(timeout_sec=10.0):
+            self.get_logger().error("gripper_controller action server not available.")
+        else:
+            self.get_logger().info("Gripper action server connected.")
+
+        # Lancer la démo une fois
+        self.once_timer = self.create_timer(2.0, self.start_demo_once)
+
+    # ---- Callbacks ----
+    def joint_state_callback(self, msg: JointState):
+        name_to_idx = {n: i for i, n in enumerate(msg.name)}
+        for i, jn in enumerate(self.arm_joints):
+            if jn in name_to_idx:
+                idx = name_to_idx[jn]
+                if idx < len(msg.position):
+                    self.current_arm_positions[i] = float(msg.position[idx])
+
+        if self.gripper_joint[0] in name_to_idx:
+            idx = name_to_idx[self.gripper_joint[0]]
+            if idx < len(msg.position):
+                self.current_gripper_position = float(msg.position[idx])
+
+    # ---- Utils ----
+    def send_trajectory(self, client, joint_names, start_pos, target_pos, duration_sec=3.0) -> bool:
+        goal = FollowJointTrajectory.Goal()
+        traj = JointTrajectory()
+        traj.joint_names = joint_names
+
+        start = JointTrajectoryPoint()
+        start.positions = list(start_pos)
+        start.time_from_start = Duration(seconds=0.0).to_msg()
+
+        end = JointTrajectoryPoint()
+        end.positions = list(target_pos)
+        end.time_from_start = Duration(seconds=float(duration_sec)).to_msg()
+
+        traj.points = [start, end]
+        goal.trajectory = traj
+
+        self.get_logger().info(f"Sending trajectory to {client._action_name}: {target_pos}")
+
+        send_future = client.send_goal_async(goal)
+        rclpy.spin_until_future_complete(self, send_future)
+        goal_handle = send_future.result()
+        if not goal_handle or not goal_handle.accepted:
+            self.get_logger().error("Goal rejected by action server.")
             return False
-            
-        start_time = time.time()
-        while not future.done():
-            if time.time() - start_time > timeout:
-                self.get_logger().warning('Action timed out')
-                return False
-            time.sleep(0.1)
+
+        result_future = goal_handle.get_result_async()
+        rclpy.spin_until_future_complete(self, result_future)
+        result = result_future.result()
+        if result is None:
+            self.get_logger().error("No result returned by action server.")
+            return False
+
         return True
-    
-    def demo_movements(self):
-        """Perform demo movements sequence"""
-        self.get_logger().info('Starting demo movements...')
-        
-        # Sequence of movements with gripper actions
-        movements = [
-            # Movement 1: Home position with open gripper
-            ('move_to_home', self.move_to_home),
-            ('open_gripper', self.open_gripper),
-            
-            # Movement 2: Pose 1 with gripper partially closed
-            ('move_to_pose1', self.move_to_pose1),
-            ('partially_close_gripper', self.partially_close_gripper),
-            
-            # Movement 3: Pose 2 with gripper closed
-            ('move_to_pose2', self.move_to_pose2),
-            ('close_gripper', self.close_gripper),
-            
-            # Movement 4: Pose 3 with gripper open
-            ('move_to_pose3', self.move_to_pose3),
-            ('open_gripper', self.open_gripper),
-            
-            # Movement 5: Back to home
-            ('move_to_home', self.move_to_home),
-            ('close_gripper', self.close_gripper)
+
+    # ---- Movements ----
+    def move_arm(self, positions: List[float], duration=3.0):
+        return self.send_trajectory(
+            self.arm_client, self.arm_joints, self.current_arm_positions, positions, duration
+        )
+
+    def move_gripper(self, position: float, duration=2.0):
+        return self.send_trajectory(
+            self.gripper_client, self.gripper_joint,
+            [self.current_gripper_position], [position], duration
+        )
+
+    # ---- Poses ----
+    def home(self):
+        return self.move_arm([0.0, 0.0, 0.0, 0.0], 2.0)
+
+    def pose1(self):
+        return self.move_arm([1.57, 0.5, -1.0, 0.5], 3.0)
+
+    def pose2(self):
+        return self.move_arm([-1.57, -0.5, 1.5, -0.8], 3.0)
+
+    def pose3(self):
+        return self.move_arm([0.0, 1.2, -2.0, 1.0], 3.0)
+
+    def open_gripper(self):
+        return self.move_gripper(0.04, 2.0)  # exemple ouverture 4cm
+
+    def close_gripper(self):
+        return self.move_gripper(0.0, 2.0)   # fermé
+
+    # ---- Demo ----
+    def start_demo_once(self):
+        self.once_timer.cancel()
+        self.get_logger().info("Starting demo sequence...")
+
+        sequence = [
+            self.home,
+            self.pose1,
+            self.open_gripper,
+            self.pose2,
+            self.close_gripper,
+            self.pose3,
+            self.home,
         ]
-        
-        # Execute movements with proper waiting
-        for i, (name, movement_func) in enumerate(movements):
-            self.get_logger().info(f'Executing {name} ({i+1}/{len(movements)})')
-            future = movement_func()
-            
-            # Wait for completion
-            if self.wait_for_completion(future, 6.0):
-                self.get_logger().info(f'{name} completed successfully')
-            else:
-                self.get_logger().warning(f'{name} may not have completed')
-            
-            # Small delay between movements
-            time.sleep(1.0)
-        
-        self.get_logger().info('Demo sequence completed!')
-    
-    def manual_control(self):
-        """Manual control interface"""
-        self.get_logger().info('Manual control available. Use service calls or create a separate interface.')
+
+        for i, step in enumerate(sequence, 1):
+            self.get_logger().info(f"Step {i}/{len(sequence)}: {step.__name__}")
+            ok = step()
+            if not ok:
+                self.get_logger().error("Movement failed, stopping sequence.")
+                break
 
 
 def main(args=None):
     rclpy.init(args=args)
-    
-    arm_controller = ArmController()
-    
+    node = ArmController()
     try:
-        rclpy.spin(arm_controller)
+        rclpy.spin(node)
     except KeyboardInterrupt:
         pass
     finally:
-        arm_controller.destroy_node()
+        node.destroy_node()
         rclpy.shutdown()
 
 
