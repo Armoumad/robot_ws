@@ -5,7 +5,8 @@ controller_manager:
     arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
-    gripper_controller:
+    # Renamed to avoid clash with joint name
+    gripper_trajectory_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
     joint_state_broadcaster:
@@ -50,11 +51,11 @@ arm_controller:
         trajectory: 0.1
         goal: 0.05
 
-# Contrôleur séparé pour le gripper
-gripper_controller:
+# Contrôleur séparé pour le gripper (contrôleur renommé)
+gripper_trajectory_controller:
   ros__parameters:
     joints:
-      - gripper_controller   # <-- corrigé, c’est bien le joint de l’URDF
+      - gripper_controller   # joint du gripper dans l'URDF
     
     command_interfaces:
       - position

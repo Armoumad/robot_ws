@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!--
+    Gazebo mimic plugins for the adaptive gripper.
+    Requires: ros-humble-roboticsgroup-upatras-gazebo-plugins
+    Usage in URDF:
+      <xacro:include filename="$(find robot_arm_simulation)/urdf/gripper_mimic_plugins.xacro"/>
+      <xacro:gripper_mimic_plugins prefix=""/>
+  -->
+
+  <xacro:macro name="gripper_mimic_plugins" params="prefix">
+    <gazebo>
+      <!-- left side -->
+      <plugin name="${prefix}mimic_left2" filename="libgazebo_mimic_joint_plugin.so">
+        <joint>${prefix}gripper_base_to_left2</joint>
+        <mimicJoint>${prefix}gripper_controller</mimicJoint>
+        <multiplier>1.0</multiplier>
+        <offset>0.0</offset>
+      </plugin>
+
+      <plugin name="${prefix}mimic_left1" filename="libgazebo_mimic_joint_plugin.so">
+        <joint>${prefix}gripper_left3_to_left1</joint>
+        <mimicJoint>${prefix}gripper_controller</mimicJoint>
+        <multiplier>-1.0</multiplier>
+        <offset>0.0</offset>
+      </plugin>
+
+      <!-- right side -->
+      <plugin name="${prefix}mimic_right3" filename="libgazebo_mimic_joint_plugin.so">
+        <joint>${prefix}gripper_base_to_right3</joint>
+        <mimicJoint>${prefix}gripper_controller</mimicJoint>
+        <multiplier>-1.0</multiplier>
+        <offset>0.0</offset>
+      </plugin>
+
+      <plugin name="${prefix}mimic_right2" filename="libgazebo_mimic_joint_plugin.so">
+        <joint>${prefix}gripper_base_to_right2</joint>
+        <mimicJoint>${prefix}gripper_controller</mimicJoint>
+        <multiplier>-1.0</multiplier>
+        <offset>0.0</offset>
+      </plugin>
+
+      <plugin name="${prefix}mimic_right1" filename="libgazebo_mimic_joint_plugin.so">
+        <joint>${prefix}gripper_right3_to_right1</joint>
+        <mimicJoint>${prefix}gripper_controller</mimicJoint>
+        <multiplier>1.0</multiplier>
+        <offset>0.0</offset>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+</robot>

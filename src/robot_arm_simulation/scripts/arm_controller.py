@@ -19,7 +19,8 @@ class ArmController(Node):
 
         # ---- Action servers ----
         self.arm_action_ns = '/arm_controller/follow_joint_trajectory'
-        self.gripper_action_ns = '/gripper_controller/follow_joint_trajectory'
+        # Use the renamed controller for the gripper
+        self.gripper_action_ns = '/gripper_trajectory_controller/follow_joint_trajectory'
 
         # Joints du bras
         self.arm_joints = [
@@ -29,7 +30,7 @@ class ArmController(Node):
             'forearm_joint',
         ]
 
-        # Joint du gripper
+        # Joint du gripper (nom de joint URDF)
         self.gripper_joint = ['gripper_controller']
 
         # Positions courantes
@@ -52,7 +53,7 @@ class ArmController(Node):
             self.get_logger().info("Arm action server connected.")
 
         if not self.gripper_client.wait_for_server(timeout_sec=10.0):
-            self.get_logger().error("gripper_controller action server not available.")
+            self.get_logger().error("gripper_trajectory_controller action server not available.")
         else:
             self.get_logger().info("Gripper action server connected.")
 

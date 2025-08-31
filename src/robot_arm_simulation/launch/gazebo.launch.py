@@ -8,7 +8,6 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
-from launch.actions import SetEnvironmentVariable
 
 def generate_launch_description():
 
@@ -49,7 +48,7 @@ def generate_launch_description():
         launch_arguments={'world': world_file, 'verbose': 'true'}.items()
     )
 
-    # Spawn robot
+    # Spawn robot into Gazebo
     spawn_robot = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
@@ -57,13 +56,8 @@ def generate_launch_description():
         output='screen'
     )
 
-    # Controller manager
-    controller_manager = Node(
-        package='controller_manager',
-        executable='ros2_control_node',
-        parameters=[controllers_file, {'use_sim_time': use_sim_time}],
-        output='screen'
-    )
+    # IMPORTANT: Do NOT start a separate controller_manager node here.
+    # Gazebo's ros2_control plugin hosts the controller_manager.
 
     # Spawn controllers
     spawn_joint_state_broadcaster = Node(
@@ -82,12 +76,21 @@ def generate_launch_description():
         output='screen'
     )
 
+    # Renamed controller to avoid name clash with the joint
+    spawn_gripper_controller = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['gripper_trajectory_controller'],
+        parameters=[{'use_sim_time': use_sim_time}],
+        output='screen'
+    )
+
     return LaunchDescription([
         declare_use_sim_time_cmd,
         robot_state_publisher_node,
         gazebo_launch,
         spawn_robot,
-        controller_manager,
         spawn_joint_state_broadcaster,
-        spawn_arm_controller
+        spawn_arm_controller,
+        spawn_gripper_controller
     ])

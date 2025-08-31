@@ -32,6 +32,7 @@
 /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/gripper_right3.dae:Zone.Identifier:Zone.Identifier
 /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/upper_arm.dae
 /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//meshes/upper_arm.dae:Zone.Identifier
+/home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//urdf/gripper_mimic_plugins.xacro
 /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//urdf/inertial_macros.xacro
 /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//urdf/robot_arm.urdf.xacro
 /home/armoumad/robot_ws/install/robot_arm_simulation/share/robot_arm_simulation//config/arm_controllers.yaml
